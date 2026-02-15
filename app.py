@@ -4,7 +4,7 @@ from simulator import DataDistribution, SimulationConfig, simulate
 
 st.set_page_config(page_title="Continuous Batching Simulation", layout="wide")
 
-st.title("Batch Composition in Async Pipeline")
+st.title("Async Batching Simulator")
 
 st.markdown(
     """
