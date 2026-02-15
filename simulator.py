@@ -80,10 +80,9 @@ class SimulationConfig:
     @property
     def transient_regime_severity(self) -> float:
         """Severity of transient regime (higher = worse)."""
-        dist_asymmetry = self.dist.prob_short / (1 - self.dist.prob_short)
         seq_len_asymmetry = self.dist.long / self.dist.short
         concurrency_aggravation = self.max_concurrent_requests / self.seq_per_batch
-        return dist_asymmetry * seq_len_asymmetry * concurrency_aggravation
+        return seq_len_asymmetry * concurrency_aggravation
 
     @property
     def num_batches(self) -> int:
