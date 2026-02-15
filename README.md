@@ -2,6 +2,17 @@
 
 **Simulate batch composition over time when batching is asynchronous i.e. we fill up the batch with whatever generations finish first.**
 
+The goal is to visualize and understand the transient skew towards short (resp. long) sequences in early (resp. late) batches, alongside the steady-state behavior.
+
+We plot both
+- batch composition over time (short vs long sequences in each batch)
+- inference engine timeline (short vs long sequences running inside engine and lane occupancy)
+to illustrate the transient vs steady state regimes in asynchronous batching.
+
+We use a simple threading-based simulation to model sequence generation and asynchronous batching, and Matplotlib for plotting. We assume two types of sequences (SHORT and LONG) with different generation times, and a fixed number of lanes in the inference engine.
+
+A Streamlit interface allows for interactive parameter tuning and visualization.
+
 ## Files
 
 - `simulator.py` - Core simulation logic (threading-based batching and lane management)
@@ -14,13 +25,13 @@
 ### Command Line (saves plots to `plots/`)
 
 ```bash
-uv run python simulator.py
+python simulator.py
 ```
 
 ### Web Interface (interactive)
 
 ```bash
-uv run streamlit run app.py
+streamlit run app.py
 ```
 
 Then open your browser to the URL shown (typically `http://localhost:8501`)
