@@ -2,7 +2,7 @@ import streamlit as st
 from plotting import plot_batcher_history, plot_inference_engine_history
 from simulator import DataDistribution, SimulationConfig, simulate
 
-st.set_page_config(page_title="Continuous Batching Simulation", layout="wide")
+st.set_page_config(page_title="Async Batching Simulator", layout="wide")
 
 st.title("Async Batching Simulator")
 
